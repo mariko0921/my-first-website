@@ -1,0 +1,406 @@
+html {
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 100px 0;
+    gap: 20px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start;
+}
+
+.logo img {
+    width: 48px;
+    height: auto;
+}
+
+nav {
+    margin: 0 200px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    font-size: 26px;
+    color: #17365d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px 80px 150px;
+    gap: 20px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+.hero-text h2 {
+    font-size: 42px;
+    line-height: 1.4;
+    color: #17365d;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.hero-text .hero-catch {
+    color: #f0055b;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+body {
+    background-color: #F5FAFF;
+
+    background-image:
+        radial-gradient(
+            circle at 20% 30%,
+            #DCEEFF 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            #DDF7E9 0%,
+            transparent 40%
+        );
+}
+
+.about {
+    text-align: center;
+}
+
+.about h2 {
+    color: #2563eb;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.feature-image {
+    display: block;
+    width: 300px;
+    height: auto;
+    margin: 30px auto 0;
+}
+
+
+.about-features {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+
+.feature {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+}
+
+
+.about-text{
+    font-size: 28px;
+    line-height: 1.4;
+    color: #17365d;
+    font-weight: bold;
+}
+
+.about h3 {
+    font-size: 28px;
+    line-height: 1.4;
+    color: #f6f7f8;
+    font-weight: bold;
+
+    background-color: #f0055b;
+    padding: 10px 25px;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 0 auto 30px;
+}
+.feature p {
+    font-weight: bold;
+    color: #17365d;
+}
+
+.howto {
+    text-align: center;
+}
+
+.howto h2 {
+    color: #2563eb;
+    font-size: 35px;
+    margin-top: 30px;
+}
+
+.howto h3 {
+    text-align: left;
+    max-width: 1200px;
+    margin: 40px auto 30px;
+}
+
+.howto-steps {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto 30px;
+}
+
+.step {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.step-image {
+    width: 60%;
+    height: auto;
+}
+
+.howto h3 {
+    font-size: 28px;
+    line-height: 1.4;
+    color: #f0055b;
+    font-weight: bold;
+
+    width: fit-content;
+    margin: 40px 0 30px 50px;
+    padding: 0;
+}
+
+.howto h3::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    background-color: #f0055b;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.news {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.news h2 {
+    font-size: 32px;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.news-list {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.news-item {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.news-date {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.news-category {
+    color: #f0055b;
+    font-weight: bold;
+}
+
+.news-title {
+    color: #17365d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.news-item {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    background-color: #fff0f5;
+}
+
+.news-more summary {
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 40px;
+    background-color: #f0055b;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+}
+
+.news-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.news-more summary:hover {
+    background-color: #d0044f;
+}
+
+/* 通常時はCLOSEを隠す */
+.more-close {
+    display: none;
+}
+
+/* 開いたらMOREを隠す */
+.news-more[open] .more-open {
+    display: none;
+}
+
+/* 開いたらCLOSEを表示する */
+.news-more[open] .more-close {
+    display: inline;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 32px;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form input {
+    width: 60%;
+}
+
+/* ラベルを左寄せにする */
+.contact-form label {
+    text-align: left;
+    color: #17365d;
+    font-weight: bold;
+}
+
+/* お名前・メールアドレスの入力欄 */
+.contact-form input {
+    width: 60%;
+    align-self: flex-start;
+    box-sizing: border-box;
+}
+
+/* 送信ボタンのデザイン */
+.contact-form button {
+    background-color: #f0055b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    align-self: flex-end;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* マウスを乗せたとき */
+.contact-form button:hover {
+    background-color: #d0044f;
+    transform: translateY(-3px);
+}
+
+
+
+
+
+    
