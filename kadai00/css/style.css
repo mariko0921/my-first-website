@@ -1,118 +1,13 @@
+/* ==========================
+   01. ページ全体
+========================== */
+
+/* クリックしたらスムーズに移動 */
 html {
     scroll-behavior: smooth;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 100px 0;
-    gap: 20px;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    align-self: flex-start;
-}
-
-.logo img {
-    width: 48px;
-    height: auto;
-}
-
-nav {
-    margin: 0 200px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-}
-
-nav a {
-    font-size: 26px;
-    color: #17365d;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.hero-image {
-    flex: 1;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 30px 80px 150px;
-    gap: 20px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.hero-image {
-    flex: 1;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-}
-.hero-text h2 {
-    font-size: 42px;
-    line-height: 1.4;
-    color: #17365d;
-}
-
-.hero-text p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #444;
-}
-
-.hero-button {
-    display: inline-block;
-    background-color: #2563eb;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.hero-text .hero-catch {
-    color: #f0055b;
-    font-size: 35px;
-    font-weight: bold;
-}
+/* ページ全体の背景 */
 
 body {
     background-color: #F5FAFF;
@@ -130,16 +25,127 @@ body {
         );
 }
 
-.about {
-    text-align: center;
+
+
+/* ==========================
+   02. ヘッダー・ナビゲーション
+========================== */
+
+/* navの中のメニューを横並び */
+nav ul {
+    display: flex;/* 横並び */
+    list-style: none;/* リストの点を消す */
+    gap: 30px;/* メニュー同士の間隔 */
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
 }
 
-.about h2 {
-    color: #2563eb;
+/* headerの中のロゴとnavを上下2段に並べる */
+header {
+    display: flex;
+    flex-direction: column;/* 縦並び */
+    align-items: stretch;/* 子要素を横方向に伸ばす */
+    padding: 10px 100px 0;/* 上10px、左右100px */
+    gap: 20px;/* ロゴとnavの間隔 */
+}
+
+/* ロゴの画像と文字を横並びにする */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start;
+}
+
+.logo img {
+    width: 48px;
+    height: auto;
+}
+/* ナビゲーション全体の左右の余白 */
+
+nav {
+    margin: 0 200px;
+}
+
+/* ナビゲーション内のリンク */
+nav a {
+    font-size: 26px;
+    color: #17365d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================
+ 03. ヒーローエリア
+========================== */
+
+/* 文字側と画像側でスペースを分ける */
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+
+/* 文字と画像を横並びにする */
+.hero {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px 80px 150px;
+    gap: 20px;
+}
+
+/* 画像を親要素の幅に合わせる */
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* ヒーローの見出し */
+.hero-text h2 {
+    font-size: 42px;
+    line-height: 1.4;
+    color: #17365d;
+}
+
+/* ヒーローの説明文 */
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* ヒーローのボタン */
+.hero-button {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+/* 強調したいキャッチコピー */
+.hero-text .hero-catch {
+    color: #f0055b;
     font-size: 35px;
-    margin-top: 10px;
+    font-weight: bold;
 }
 
+
+/* ==========================
+   05. About Chessboard
+========================== */
+
+
+/* 特徴を紹介する画像 */
 .feature-image {
     display: block;
     width: 300px;
@@ -147,7 +153,7 @@ body {
     margin: 30px auto 0;
 }
 
-
+/* 特徴を横並びにする */
 .about-features {
     display: flex;
     gap: 30px;
@@ -155,20 +161,22 @@ body {
     margin: 40px auto 0;
 }
 
+/* それぞれの特徴 */
 .feature {
     flex: 1;
     min-width: 0;
     text-align: center;
 }
 
-
+/* Aboutの説明文 */
 .about-text{
     font-size: 28px;
     line-height: 1.4;
     color: #17365d;
     font-weight: bold;
+    text-align: center;
 }
-
+/* About内の小見出し */
 .about h3 {
     font-size: 28px;
     line-height: 1.4;
@@ -186,22 +194,24 @@ body {
     color: #17365d;
 }
 
-.howto {
-    text-align: center;
-}
+/* ==========================
+   06. How to use Chessboard
+========================== */
 
-.howto h2 {
-    color: #2563eb;
-    font-size: 35px;
-    margin-top: 30px;
-}
-
+/* How toの小見出し */
 .howto h3 {
     text-align: left;
     max-width: 1200px;
-    margin: 40px auto 30px;
+    font-size: 28px;
+    line-height: 1.4;
+    color: #f0055b;
+    font-weight: bold;
+    width: fit-content;
+    margin: 40px 0 30px 50px;
+    padding: 0;
 }
 
+/* ステップを横並びにする */
 .howto-steps {
     display: flex;
     gap: 20px;
@@ -209,6 +219,7 @@ body {
     margin: 30px auto 30px;
 }
 
+/* それぞれのステップのカード */
 .step {
     flex: 1;
     background-color: #ffffff;
@@ -220,27 +231,19 @@ body {
     gap: 10px;
 }
 
+/* カード内の説明文 */
 .step-text {
     flex: 1;
     min-width: 0;
 }
 
+/* カード内の画像 */
 .step-image {
     width: 60%;
     height: auto;
 }
 
-.howto h3 {
-    font-size: 28px;
-    line-height: 1.4;
-    color: #f0055b;
-    font-weight: bold;
-
-    width: fit-content;
-    margin: 40px 0 30px 50px;
-    padding: 0;
-}
-
+/* 小見出しの下にピンクの線をつける */
 .howto h3::after {
     content: "";
     display: block;
@@ -251,46 +254,46 @@ body {
     margin-top: 10px;
 }
 
-.news {
-    padding: 80px 30px;
-    text-align: center;
-}
-
-.news h2 {
-    font-size: 32px;
-    color: #2563eb;
-    font-weight: bold;
-}
-
+/* ==========================
+   07. News
+========================== */
+/* ニュース一覧の横幅 */
 .news-list {
     max-width: 1000px;
     margin: 40px auto;
 }
 
-.news-item {
-    background-color: #ffffff;
-    padding: 25px 30px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    text-align: left;
+/* Newsセクションの左右・下側の余白 */
+.news {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
 }
 
+.news h3 {
+    text-align: center;
+}
+
+/* ニュースの日付 */
 .news-date {
     color: #64748b;
     font-size: 14px;
 }
 
+/* ニュースのカテゴリー */
 .news-category {
     color: #f0055b;
     font-weight: bold;
 }
 
+/* ニュースのタイトル */
 .news-title {
     color: #17365d;
     font-size: 18px;
     font-weight: bold;
 }
 
+/* ニュースのカード */
 .news-item {
     background-color: #ffffff;
     padding: 25px 30px;
@@ -301,11 +304,13 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+/* カードにマウスを乗せたとき */
 .news-item:hover {
     transform: translateY(-5px);
     background-color: #fff0f5;
 }
 
+/* MORE / CLOSEボタン */
 .news-more summary {
     width: fit-content;
     margin: 30px auto;
@@ -318,10 +323,12 @@ body {
     list-style: none;
 }
 
+/* ブラウザ標準のマーカーを非表示 */
 .news-more summary::-webkit-details-marker {
     display: none;
 }
 
+/* MORE / CLOSEボタンのホバー */
 .news-more summary:hover {
     background-color: #d0044f;
 }
@@ -341,16 +348,21 @@ body {
     display: inline;
 }
 
+/* ==========================
+   08. Contact
+========================== */
+
+/* Contactの上側の余白だけ小さくする */
 .contact {
+    padding-top: 20px;
+}
+
+.contact h3,p{
     text-align: center;
 }
 
-.contact h2 {
-    font-size: 32px;
-    color: #2563eb;
-    font-weight: bold;
-}
 
+/* お問い合わせフォーム全体 */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -359,11 +371,7 @@ body {
     margin: 0 auto;
 }
 
-.contact-form input {
-    width: 60%;
-}
-
-/* ラベルを左寄せにする */
+/* ラベルを左寄せ、色 */
 .contact-form label {
     text-align: left;
     color: #17365d;
@@ -387,9 +395,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-
     align-self: flex-end;
-
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -397,6 +403,41 @@ body {
 .contact-form button:hover {
     background-color: #d0044f;
     transform: translateY(-3px);
+}
+
+/* ==========================
+   セクション共通デザイン
+========================== */
+
+/* About・Howto・News・Contactの上下余白を統一 */
+.about,
+.howto,
+.news,
+.contact {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* 4つの見出しのデザインを統一 */
+.about h2,
+.howto h2,
+.news h2,
+.contact h2 {
+    font-size: 40px;
+    color: #2563eb;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* NewsとContactの間隔を狭くする */
+.news {
+    padding-bottom: 20px;
+}
+
+.contact {
+    padding-top: 20px;
 }
 
 
