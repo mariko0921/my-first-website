@@ -441,6 +441,145 @@ nav a {
 }
 
 
+/* ==========================
+   スマホ表示用のCSS
+   画面幅768px以下のときだけ適用
+========================== */
+
+@media (max-width: 768px) {
+
+    /* 画面幅から要素がはみ出すのを防ぐ */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    /* ヘッダー */
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        margin: 0;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* ヒーロー：横並びから縦並びへ */
+    .hero {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .hero-text,
+    .hero-image {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-text h2 {
+        font-size: 28px;
+    }
+
+    .hero-text .hero-catch {
+        font-size: 25px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* About：特徴を縦並びにする */
+    .about-features {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 30px;
+    }
+
+    .feature-image {
+        max-width: 100%;
+    }
+
+    .about-text {
+        font-size: 20px;
+    }
+
+    .about h3 {
+        font-size: 20px;
+    }
+
+    /* How to use：カードを縦並びにする */
+    .howto-steps {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .step {
+        flex-direction: column;
+    }
+
+    .step-image {
+        width: 100%;
+    }
+
+    .howto h3 {
+        margin-left: 20px;
+        font-size: 22px;
+    }
+
+    /* 4つの見出し */
+    .about h2,
+    .howto h2,
+    .news h2,
+    .contact h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    /* News */
+    .news {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .news-item {
+        padding: 20px;
+    }
+
+    /* Contact */
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
 
 
 
