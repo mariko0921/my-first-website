@@ -1,0 +1,47 @@
+h1 {
+    font-size: 48px;
+    color: #2563eb;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2{
+    font-size: 40px;
+    color: #021132;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  font-size: 32px;
+  padding: 10px 20px;
+}
+
+.texts{
+    font-size: 32px;
+    color: #146903;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#judge-image {
+    display: none;
+    width: 500px;
+    max-width: 90%;
+    height: auto;
+    margin: 20px auto;
+}
+
+
+
