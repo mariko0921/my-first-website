@@ -1,0 +1,142 @@
+
+/* 画面全体 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff4a8;
+    color: #302341;
+}
+
+/* ゲームの白い枠 */
+.game {
+    width: calc(100% - 30px);
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 24px;
+    background-color: white;
+    border: 4px solid #302341;
+    border-radius: 25px;
+    box-shadow: 7px 7px 0 #302341;
+}
+
+/* タイトル */
+h1 {
+    text-align: center;
+    background-color: #dd489f;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+/* タイマーと連続正解 */
+.status {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #84e9c9;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* 問題番号 */
+#question-number {
+    margin-top: 30px;
+    color: #dd489f;
+}
+
+/* 問題文 */
+#question {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* 選択肢を縦に並べる */
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* 選択肢のボタン */
+.answers button {
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    border: 3px solid #302341;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 #302341;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* マウスを乗せたとき */
+.answers button:hover:not(:disabled) {
+    background-color: #84e9c9;
+    transform: translateY(-2px);
+}
+
+/* 結果 */
+#result {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#explanation {
+    line-height: 1.7;
+}
+
+/* ご褒美演出 */
+#celebration {
+    text-align: center;
+    font-size: 25px;
+    color: #dd489f;
+    font-weight: bold;
+}
+
+/* 次の問題ボタン */
+#next {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 25px;
+    background-color: #dd489f;
+    color: white;
+    border: 3px solid #302341;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#next[hidden] {
+    display: none;
+}
+
+/* スマホ対応 */
+@media (max-width: 390px) {
+    .game {
+        margin: 15px auto;
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    .status {
+        font-size: 12px;
+    }
+
+    #question {
+        font-size: 18px;
+    }
+}

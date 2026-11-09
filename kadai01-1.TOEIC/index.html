@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC 完全攻略アプリ</title>
+
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <h1>TOEIC 4択クイズ</h1>
+
+        <!-- タイマーと連続正解数 -->
+        <div class="status">
+            <p>⏰ 残り <span id="timer">15</span> 秒</p>
+            <p>🔥 連続正解 <span id="streak">0</span> 問</p>
+        </div>
+
+        <!-- 問題番号 -->
+        <h2 id="question-number"></h2>
+
+        <!-- 問題文 -->
+        <p id="question"></p>
+
+        <!-- 4択の選択肢 -->
+        <div class="answers">
+            <button id="answer1"></button>
+            <button id="answer2"></button>
+            <button id="answer3"></button>
+            <button id="answer4"></button>
+        </div>
+
+        <!-- 正解・不正解の表示 -->
+        <p id="result"></p>
+
+        <!-- 解説 -->
+        <p id="explanation"></p>
+
+        <!-- 連続正解のご褒美 -->
+        <p id="celebration"></p>
+
+        <!-- 次の問題へ -->
+        <button id="next" hidden>次の問題へ →</button>
+
+        <!-- 正解数 -->
+        <p id="score"></p>
+
+    </main>
+
+    <!-- jQueryの読み込み -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- 自分のJavaScriptの読み込み -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
