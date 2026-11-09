@@ -28,10 +28,12 @@ const questions = [
 let questionIndex = 0;
 let seconds = 0;
 let timerId = null;
+let streak = 0; // ★追加：連続正解数
+let answered = false; // ★追加
 
 // ③ 問題を画面に表示する
 function showQuestion() {
-
+    answered = false; // ★追加
     const current = questions[questionIndex];
 
     $("#question-number").text("Question " + (questionIndex + 1));
@@ -45,6 +47,7 @@ function showQuestion() {
 
     $("#result").text("");
     $("#explanation").text("");
+    $("#celebration").text(""); // ★追加
 
     $(".answers button").prop("disabled", false);
     $("#next").prop("hidden", true);
@@ -63,15 +66,35 @@ function checkAnswer(selected) {
 
     const current = questions[questionIndex];
 
-    if (selected === current.answer) {
-        $("#result").text("⭕ 正解！");
+    
+if (selected === current.answer) {
 
-    } else if (selected === -1) {
-        $("#result").text("⌛ 時間切れ！不正解です");
+    // 正解したら連続正解数を1増やす
+    streak++;
+    $("#result").text("⭕ 正解！");
 
-    } else {
-        $("#result").text("❌ 不正解！");
-    }
+   // 3問連続正解したら拍手（テスト用）
+if (streak === 3) {
+    $("#celebration").text("👏 3問連続正解！すごい！");
+    showClapEffect();
+}
+
+} else if (selected === -1) {
+
+    // 時間切れの場合
+    streak = 0;
+    $("#result").text("⌛ 時間切れ！不正解です");
+
+} else {
+
+    // 不正解の場合
+    streak = 0;
+    $("#result").text("❌ 不正解！");
+}
+
+// HTMLに連続正解数を表示する
+$("#streak").text(streak);
+
 
     $("#explanation").text(current.explanation);
 
@@ -134,6 +157,28 @@ $("#next").on("click", function() {
         $("#next").prop("hidden", true);
     }
 });
+
+
+
+
+// 拍手GIFを表示する関数
+function showClapEffect() {
+
+    // GIFのアニメーションを最初から再実行
+    $("#clap-effect img").css("animation", "none");
+
+    // 拡大アニメーションを再設定
+    $("#clap-effect img")[0].offsetHeight;
+    $("#clap-effect img").css("animation", "");
+
+    // 拍手を表示する
+    $("#clap-effect").css("display", "flex");
+
+    // 3秒後に非表示にする
+    setTimeout(function() {
+        $("#clap-effect").hide();
+    }, 3000);
+}
 
 // 最初の問題を表示する
 showQuestion();

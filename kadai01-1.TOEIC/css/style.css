@@ -140,3 +140,44 @@ h1 {
         font-size: 18px;
     }
 }
+
+/* 拍手アニメーションの背景 */
+#clap-effect {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* 拍手GIFの大きさとアニメーション */
+#clap-effect img {
+    width: 90vw;
+    max-width: 500px;
+    max-height: 90vh;
+    object-fit: contain;
+
+    /* 拡大アニメーションを追加 */
+    animation: zoomClap 2s ease-out forwards;
+}
+
+/* 小さく登場して、グググ〜っと拡大！ */
+@keyframes zoomClap {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
