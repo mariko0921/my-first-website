@@ -37,12 +37,12 @@ $("#guu, #choki, #pa").on("click", function() {
     (playerHand === "pa" && computerHand === "guu")
   ) {
 
-    resultText = "勝負の結果：あなたの勝ち！";
+    resultText = "勝負の結果：勝ち！";
     imagePath = "images/win.png";
 
   } else {
 
-    resultText = "勝負の結果：あなたの負け！";
+    resultText = "勝負の結果：負け！";
     imagePath = "images/lose.png";
 
   }
