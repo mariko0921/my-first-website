@@ -1,28 +1,76 @@
 
-// ① TOEICの問題を登録する
-const questions = [
-    {
-        question: "The meeting has been _____ until Friday.",
-        choices: ["postponed", "provided", "attended", "received"],
-        answer: 0,
-        explanation: "postponeは「延期する」。provideは「提供する」なので、会議を延期するという意味のpostponedが正解です。",
-        timeLimit: 15
-    },
-    {
-        question: "Please _____ the document before the meeting.",
-        choices: ["review", "arrive", "borrow", "depend"],
-        answer: 0,
-        explanation: "reviewは「確認する」。会議の前に資料を確認してください、という意味です。",
-        timeLimit: 15
-    },
-    {
-        question: "All employees are _____ to attend the training.",
-        choices: ["require", "required", "requiring", "requirement"],
-        answer: 1,
-        explanation: "be required to ～ は「～することを求められる」という意味です。",
-        timeLimit: 10
-    }
-];
+// ① スプレッドシートから問題を取得する
+
+const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzC-H82sDMLR6cKpIeuuu0nGhrW8DXwReqZDPeMcQPaGviE0BWmXfnvIV88P80fOaelFltdQl4dcK8/pub?output=csv";
+
+// 問題を保存する配列
+let questions = [];
+
+// CSVを読み込む関数
+function loadQuestions() {
+
+    $("#question").text("問題を読み込み中...");
+
+    Papa.parse(csvUrl, {
+        download: true,
+        header: true,
+        skipEmptyLines: "greedy",
+
+        complete: function(results) {
+
+            questions = results.data
+                .filter(function(row) {
+                    return row.question && row.question.trim() !== "";
+                })
+                .map(function(row) {
+
+                    return {
+                        question: row.question,
+                        choices: [
+                            row.choiceA,
+                            row.choiceB,
+                            row.choiceC,
+                            row.choiceD
+                        ],
+                        answer: Number(row.answer),
+                        explanation: row.explanation,
+                        timeLimit: Number(row.timeLimit)
+                    };
+
+                });
+
+            // 問題データが正しいか確認
+            questions = questions.filter(function(q) {
+                return q.question &&
+                    q.choices.every(function(c) {
+                        return typeof c === "string" && c.trim() !== "";
+                    }) &&
+                    Number.isInteger(q.answer) &&
+                    q.answer >= 0 &&
+                    q.answer <= 3 &&
+                    Number.isFinite(q.timeLimit) &&
+                    q.timeLimit > 0;
+            });
+
+            console.log("読み込んだ問題数：" + questions.length);
+
+            if (results.errors.length > 0) {
+                console.warn("CSV読み込み時の警告", results.errors);
+            }
+
+            if (questions.length > 0) {
+                showQuestion();
+            } else {
+                $("#question").text("問題データがありません。");
+            }
+        },
+
+        error: function(error) {
+            console.error("CSV読み込みエラー", error);
+            $("#question").text("問題の読み込みに失敗しました。");
+        }
+    });
+}
 
 // ② ゲームの状態を管理する
 let questionIndex = 0;
@@ -58,52 +106,67 @@ function showQuestion() {
     startTimer();
 }
 
-// ④ 正解・不正解を判定する
+
+ // ④ 正解・不正解を判定する
 function checkAnswer(selected) {
 
-    // 回答したのでタイマーを止める
+    // すでに回答済みなら何もしない
+    if (answered === true) {
+        return;
+    }
+
+    // 回答済みにする
+    answered = true;
+
+    // タイマーを止める
     clearInterval(timerId);
 
     const current = questions[questionIndex];
 
-    
-if (selected === current.answer) {
+    // 正解した場合
+    if (selected === current.answer) {
 
-    // 正解したら連続正解数を1増やす
-    streak++;
-    $("#result").text("⭕ 正解！");
+        streak++;
+        $("#result").text("⭕ 正解！");
 
-   // 3問連続正解したら拍手（テスト用）
-if (streak === 3) {
-    $("#celebration").text("👏 3問連続正解！すごい！");
-    showClapEffect();
-}
+        // 連続正解数に応じたご褒美
+        if (streak === 15) {
+            $("#celebration").text("👏 15問連続正解！すごい！");
+            showClapEffect();
 
-} else if (selected === -1) {
+        } else if (streak === 30) {
+            $("#celebration").text("🎆 30問連続正解！おめでとう！");
+
+        } else if (streak === 50) {
+            $("#celebration").text("👑 TOEICの神！！！");
+        }
 
     // 時間切れの場合
-    streak = 0;
-    $("#result").text("⌛ 時間切れ！不正解です");
+    } else if (selected === -1) {
 
-} else {
+        streak = 0;
+        $("#result").text("⌛ 時間切れ！不正解です");
 
     // 不正解の場合
-    streak = 0;
-    $("#result").text("❌ 不正解！");
-}
+    } else {
 
-// HTMLに連続正解数を表示する
-$("#streak").text(streak);
+        streak = 0;
+        $("#result").text("❌ 不正解！");
+    }
 
+    // 連続正解数を画面に表示
+    $("#streak").text(streak);
 
+    // 解説を表示
     $("#explanation").text(current.explanation);
 
-    // 2回回答できないようにする
+    // ボタンを無効にして二重回答を防止
     $(".answers button").prop("disabled", true);
 
-    // 次の問題へボタンを表示する
+    // 次の問題へボタンを表示
     $("#next").prop("hidden", false);
 }
+
 
 // ⑤ 4つの選択肢をクリックしたとき
 $("#answer1").on("click", function() {
@@ -180,6 +243,5 @@ function showClapEffect() {
     }, 3000);
 }
 
-// 最初の問題を表示する
-showQuestion();
-
+// スプレッドシートから問題を読み込む
+loadQuestions();
