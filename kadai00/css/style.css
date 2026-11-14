@@ -206,11 +206,11 @@ nav a {
     line-height: 1.4;
     color: #f0055b;
     font-weight: bold;
-    width: fit-content;
-    margin: 40px 0 30px 50px;
+
+    width: 100%;          /* 変更① */
+    margin: 40px auto 30px; /* 変更② */
     padding: 0;
 }
-
 /* ステップを横並びにする */
 .howto-steps {
     display: flex;
